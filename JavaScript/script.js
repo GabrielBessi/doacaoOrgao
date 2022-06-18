@@ -4,11 +4,14 @@ function testarCodigo(){
         "Rua Domingos Vaz de Oliveira",
         "Banco Kenzie de Orgãos"
     )
-    bancoKenzieOrgaos.adicionarOrgaoAoBanco("rim")
-    bancoKenzieOrgaos.adicionarOrgaoAoBanco("sangue")
+
+    const rim     = new Orgao ("Rim", "AB", "Kenzinho")
+    const coracao = new Orgao ("Coração", "O+", "Gabriel")
+
+    bancoKenzieOrgaos.adicionarOrgaoAoBanco(rim)
+    bancoKenzieOrgaos.adicionarOrgaoAoBanco(coracao)
 
     bancoKenzieOrgaos.removerOrgaoAoBanco("rim")
-    bancoKenzieOrgaos.removerOrgaoAoBanco("sangue")
 
     console.log(bancoKenzieOrgaos)
 

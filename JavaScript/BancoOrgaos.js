@@ -13,20 +13,22 @@ class BancoOrgaos {
     adicionarOrgaoAoBanco(orgao){
         this.orgaosDoados.push(orgao)
         
-        this.adicionarHistorico(orgao, "kenzinho")
+        this.adicionarHistorico(orgao.nome, orgao.doador)
         //1- toda vez que chamar esta função ela vai fazer com que AdicionarHistorico crie um novo objeto
     }
 
     //Para remover o orgão eu preciso saber se a pessoa que está doando tem o mesmo tipo sanguineo do donatario
-    removerOrgaoAoBanco(orgao){
+    removerOrgaoAoBanco(orgao, donatario){
         //código de avaliação
        const orgaoEncontrado = this.orgaosDoados.find((elem) => {
-            return elem === orgao
-        } )
+            return elem.nome === orgao.toUpperCase();
+        } )    
 
+        const transplanteValidado = true
 
-        if ( orgaoEncontrado){
+        if ( orgaoEncontrado && transplanteValidado){
             const indexOrgao = this.orgaosDoados.indexOf(orgaoEncontrado)
+            
 
             this.orgaosDoados.splice(indexOrgao, 1)
 
@@ -34,7 +36,6 @@ class BancoOrgaos {
         }
 
         return orgaoEncontrado;
-
 
     }
 

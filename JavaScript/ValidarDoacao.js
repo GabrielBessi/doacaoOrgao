@@ -1,8 +1,4 @@
 class ValidarDoacao {
-    constructor(){
-
-    }
-
     static validarTipoSanguineo(orgao, donatario){
         let transplanteValidado = false
 
@@ -11,5 +7,15 @@ class ValidarDoacao {
 
         }
         return transplanteValidado
+    }
+
+    static validarDoador(doador, donatario){
+        const validacao = doador.cpf === donatario.cpf 
+
+        return validacao
+    }
+
+    static validarIdade(doador){
+        return doador.idade >= 18
     }
 }

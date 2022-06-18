@@ -5,19 +5,26 @@ function testarCodigo(){
         "Banco Kenzie de Orgãos"
     )
 
-    const victor = new DoadorOrgaos("Victor Augusto", 23, "123456789", "victor@kenzie.com.br", "O-");
-    const orgaoDoado = victor.DoarOrgao("Rim")
-
-    const gabriel = new Donatario("Gabriel Bessi", 23, "987654321", "bessi@gmail.com", "O-" )
-    gabriel.adicionarOrgaoListaEspera("Rim")
-    gabriel.removerOrgaoListaEspera(orgaoDoado)
-        
-    bancoKenzieOrgaos.adicionarOrgaoAoBanco(orgaoDoado)
-    //console.log(bancoKenzieOrgaos)
-    console.log(gabriel)   
-
     
+    
+    listaDoadoresOrgaos = doadores.map((doador) => {
+        const { nome, idade, cpf, email, tipoSanguineo } = doador
+        
+        const novoDoador = new DoadorOrgaos(nome, idade, cpf, email, tipoSanguineo)
+        
+        return novoDoador
+        
+    })
+    
+    const orgaoDoado = listaDoadoresOrgaos[1].DoarOrgao("Rim")
 
+    bancoKenzieOrgaos.adicionarOrgaoAoBanco(orgaoDoado)
+
+    const donatario = new Donatario("kenzinho", 18, "5698789", "kenzinho@gmail.com", "O-")
+    
+    bancoKenzieOrgaos.removerOrgaoAoBanco(orgaoDoado, donatario)
+    
+    console.log(bancoKenzieOrgaos)
 }
 
 testarCodigo()

@@ -11,28 +11,37 @@ class BancoOrgaos {
     }
 
     adicionarOrgaoAoBanco(orgao){
-        this.orgaosDoados.push(orgao)
+
+        const doacaoValida = ValidarDoacao.validarIdade(orgao.doador)
+
+        if (doacaoValida){
+            this.orgaosDoados.push(orgao)
         
-        this.adicionarHistorico(orgao.nome, orgao.doador)
-        //1- toda vez que chamar esta função ela vai fazer com que AdicionarHistorico crie um novo objeto
+            this.adicionarHistorico(orgao.nome, orgao.doador)
+            //1- toda vez que chamar esta função ela vai fazer com que AdicionarHistorico crie um novo objeto
+        }
+       
     }
 
     //Para remover o orgão eu preciso saber se a pessoa que está doando tem o mesmo tipo sanguineo do donatario
     removerOrgaoAoBanco(orgao, donatario){
         //código de avaliação
        const orgaoEncontrado = this.orgaosDoados.find((elem) => {
-            return elem.nome === orgao.toUpperCase();
+            return elem.nome === orgao.nome.toUpperCase();
         } )    
 
-        const transplanteValidado = ValidarDoacao.validarTipoSanguineo(orgao, donatario)
+        const transplanteValidado = [
+            orgaoEncontrado,
+            ValidarDoacao.validarTipoSanguineo(orgaoEncontrado, donatario),
+            ValidarDoacao.validarDoador(orgao.doador, donatario)
+        ].every((item) => item)
 
-        if ( orgaoEncontrado && transplanteValidado){
-            const indexOrgao = this.orgaosDoados.indexOf(orgaoEncontrado)
-            
+        if (transplanteValidado){
+            const indexOrgao = this.orgaosDoados.indexOf(orgaoEncontrado)            
 
             this.orgaosDoados.splice(indexOrgao, 1)
 
-            this.adicionarHistoricoRecepcao(orgao, "kenzinho")
+            this.adicionarHistoricoRecepcao(orgao, donatario)
         }
 
         return orgaoEncontrado;

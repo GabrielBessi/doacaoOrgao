@@ -3,5 +3,7 @@ class Orgao {
         this.nome          = nome.toUpperCase();
         this.tipoSanguineo = tipoSanguineo.toUpperCase();
         this.doador        = doador;
+        this.dataDoacao = null
+
     }
 }

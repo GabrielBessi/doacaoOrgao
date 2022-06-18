@@ -24,7 +24,7 @@ class BancoOrgaos {
             return elem.nome === orgao.toUpperCase();
         } )    
 
-        const transplanteValidado = true
+        const transplanteValidado = ValidarDoacao.validarTipoSanguineo(orgao, donatario)
 
         if ( orgaoEncontrado && transplanteValidado){
             const indexOrgao = this.orgaosDoados.indexOf(orgaoEncontrado)

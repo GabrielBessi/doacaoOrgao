@@ -5,15 +5,18 @@ function testarCodigo(){
         "Banco Kenzie de Orgãos"
     )
 
-    const rim     = new Orgao ("Rim", "AB", "Kenzinho")
-    const coracao = new Orgao ("Coração", "O+", "Gabriel")
+    const victor = new DoadorOrgaos("Victor Augusto", 23, "123456789", "victor@kenzie.com.br", "O-");
+    const orgaoDoado = victor.DoarOrgao("Rim")
 
-    bancoKenzieOrgaos.adicionarOrgaoAoBanco(rim)
-    bancoKenzieOrgaos.adicionarOrgaoAoBanco(coracao)
+    const gabriel = new Donatario("Gabriel Bessi", 23, "987654321", "bessi@gmail.com", "O-" )
+    gabriel.adicionarOrgaoListaEspera("Rim")
+    gabriel.removerOrgaoListaEspera(orgaoDoado)
+        
+    bancoKenzieOrgaos.adicionarOrgaoAoBanco(orgaoDoado)
+    //console.log(bancoKenzieOrgaos)
+    console.log(gabriel)   
 
-    bancoKenzieOrgaos.removerOrgaoAoBanco("rim")
-
-    console.log(bancoKenzieOrgaos)
+    
 
 }
 

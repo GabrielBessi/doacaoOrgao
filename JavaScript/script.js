@@ -1,3 +1,9 @@
+import BancoOrgaos from "./classes/BancoOrgaos.mjs"
+import DoadorOrgaos from "./classes/DoadorOrgaos.mjs"
+import Donatario from "./classes/Donatario.mjs"
+import doadores from "./data/mockdoadores.mjs"
+
+
 function testarCodigo(){
     const bancoKenzieOrgaos = new BancoOrgaos(
         "14.925.036/0001-90",

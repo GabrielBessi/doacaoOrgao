@@ -1,3 +1,6 @@
+import ValidarDoacao from "./ValidarDoacao.mjs";
+
+
 class BancoOrgaos {
     constructor(cnpj, endereco, razaoSocial, ){
         this.cnpj        = cnpj;
@@ -83,3 +86,5 @@ class BancoOrgaos {
     }
 
 }
+
+export default BancoOrgaos

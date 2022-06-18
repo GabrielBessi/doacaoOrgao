@@ -10,3 +10,5 @@ const doadores = [
     { nome:"Caique", idade: 23, cpf:"87810678", email:"caique@kenzie.com.br", tipoSanguineo: "AB" },
     { nome:"Guilherme", idade: 22, cpf:"83789292", email:"guilherme@kenzie.com.br", tipoSanguineo: "O+" }
 ]
+
+export default doadores
